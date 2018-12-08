@@ -1,0 +1,14 @@
+{
+  "name": "fullstack-crm",
+  "version": "0.0.1",
+  "description": "fullstack app with angular, nodejs and mongodb",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "tardigrada777",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.4"
+  }
+}
