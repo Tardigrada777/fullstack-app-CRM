@@ -1,14 +1,7 @@
-const express = require("express");
-
+const express = require('express');
+const authRoutes = require('./routes/auth')
 const app = express();
 
-let data = {
-    message: "working",
-    id: 6
-};
-
-app.get("/", (req, res) => {
-    res.status(200).json(data);
-});
+app.use('/api/auth', authRoutes);
 
 module.exports = app;
