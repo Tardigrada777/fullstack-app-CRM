@@ -13,6 +13,9 @@ const bodyParser = require('body-parser');
 const cors = require('cors'); // Для обработки запросов с других доменов
 const morgan = require('morgan'); // Для логирования работы сервера
 const mongoose = require('mongoose');
+const passport = require('passport');
+
+const app = express();
 
 // Подключение к базе данных
 const keys = require('./config/keys');
@@ -20,11 +23,15 @@ mongoose.connect(keys.mongoURI)
     .then(() => console.log("MongoDb connected"))
     .catch(error => console.log(error))
 
-const app = express();
+// Инициализация Passport.js
+app.use(passport.initialize());
+require('./middleware/passport')(passport);
+
+
 
 
 app.use(morgan('dev'));
-app.use(bodyParser.urlencoded({extended: true}));
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(cors());
 
